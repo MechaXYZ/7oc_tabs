@@ -123,8 +123,7 @@ function makeParams (params) {
 }
 
 function getFontFamily () {
-	var font = document.getElementById("font").value;
-	return '"Open 12 Hole Ocarina '+font+'", monospace';
+	return '"Open 7 Hole Ocarina", monospace';
 }
 
 
@@ -207,11 +206,7 @@ function init() {
 		link.appendChild(document.createTextNode(" "+document.title));
 		document.body.appendChild(link);
 	}
-
-	if (window.chrome && window.chrome.app && !window.chrome.app.isInstalled) {
-//		document.getElementById("install_app").style.display = "";
-	}
-
+	
 	editor.addEventListener("paste", function (event) {
 		event.preventDefault();
 
@@ -548,7 +543,7 @@ function saveAsImage () {
 		y += line_height;
 	}
 
-	saveCanvasImage(canvas, "12_hole_ocarina_tabs.png", "image/png");
+	saveCanvasImage(canvas, "7_hole_ocarina_tabs.png", "image/png");
 	saveAsFile = saveAsImage;
 }
 
@@ -558,7 +553,7 @@ function saveAsTextFile () {
 	var blob = new Blob([text], {type : 'text/plain;charset=UTF-8'});
 
 	var url = URL.createObjectURL(blob);
-	saveUrlAs(url, "12_hole_ocarina_tabs.txt");
+	saveUrlAs(url, "7_hole_ocarina_tabs.txt");
 	setTimeout(function () {
 		URL.revokeObjectURL(url);
 	}, 0);
@@ -664,12 +659,6 @@ function setCursorToEnd (element) {
 	var selection = window.getSelection();
 	selection.removeAllRanges();
 	selection.addRange(range);
-}
-
-function installApp () {
-	if (window.chrome) {
-		window.location = "https://panzi.github.io/ocarina_tabs/app/ocarina_tabs.crx";
-	}
 }
 
 function undoEdit () {

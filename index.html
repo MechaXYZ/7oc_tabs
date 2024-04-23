@@ -4,31 +4,26 @@
 		<meta charset="UTF-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=800, initial-scale=1"/>
-		<meta name="description" content="Create fingering tabs for 12 hole ocarinas."/>
+		<meta name="description" content="Create fingering tabs for 7 hole Songbird Ocarinas."/>
 		<meta name="keywords" content="ocarina, tabs"/>
 		<meta name="author" content="Mathias Panzenb&ouml;ck"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
 		<meta name="apple-mobile-web-app-status-bar-style" content="white"/>
-		<meta name="apple-mobile-web-app-title" content="12 Hole Ocarina Tabs Creator"/>
+		<meta name="apple-mobile-web-app-title" content="7 Hole Ocarina Tabs Creator"/>
 		<meta name="google-site-verification" content="-uK2b72zZMib6GnLFISO9iIx-8GuMFo7y7WPKIA91HQ"/>
 
-		<title>12 Hole Ocarina Tabs Creator</title>
+		<title>7 Hole Ocarina Tabs Creator</title>
 
-		<link rel="shortcut icon" href="/ocarina_tabs/app/ocarina_tabs/icon16.png" type="image/png"/>
-		<link rel="apple-touch-icon" sizes="32x32" href="/ocarina_tabs/app/ocarina_tabs/icon32.png"/>
-		<link rel="apple-touch-icon" sizes="48x48" href="/ocarina_tabs/app/ocarina_tabs/icon48.png"/>
-		<link rel="apple-touch-icon" sizes="64x64" href="/ocarina_tabs/app/ocarina_tabs/icon64.png"/>
-		<link rel="apple-touch-icon" sizes="128x128" href="/ocarina_tabs/app/ocarina_tabs/icon128.png"/>
+		<link rel="shortcut icon" href="/7oc_tabs/icons/icon16.png" type="image/png"/>
+		<link rel="apple-touch-icon" sizes="32x32" href="/7oc_tabs/icons/icon32.png"/>
+		<link rel="apple-touch-icon" sizes="48x48" href="/7oc_tabs/icons/icon48.png"/>
+		<link rel="apple-touch-icon" sizes="64x64" href="/7oc_tabs/icons/icon64.png"/>
+		<link rel="apple-touch-icon" sizes="128x128" href="/7oc_tabs/icons/icon128.png"/>
 
 		<style type="text/css">
 			@font-face {
-				font-family: "Open 12 Hole Ocarina 1";
-				src: url("/ocarina_tabs/Open-12-Hole-Ocarina-1.ttf");
-			}
-
-			@font-face {
-				font-family: "Open 12 Hole Ocarina 2";
-				src: url("/ocarina_tabs/Open-12-Hole-Ocarina-2.ttf");
+				font-family: "Open 7 Hole Ocarina";
+				src: url("/7oc_tabs/Open-7-Hole-Ocarina.otf");
 			}
 
 			html, body {
@@ -42,7 +37,7 @@
 			}
 
 			.tabs {
-				font-family: "Open 12 Hole Ocarina 1", monospace;
+				font-family: "Open 7 Hole Ocarina", monospace;
 				white-space: pre;
 				padding: 95px 20px 20px 20px;
 				outline: none;
@@ -248,11 +243,6 @@
 						<option value="pc">pc</option>
 					</select>
 
-					<select id="font" onchange="updateStyle();" title="Font Variant">
-						<option value="1" selected>1</option>
-						<option value="2">2</option>
-					</select>
-
 					<select id="key" onchange="updateButtons();" title="Key">
 						<option value="C" selected>C</option>
 						<option value="F">F</option>
@@ -281,7 +271,6 @@
 					<button class="btn" type="button" onclick="shareLink();" title="Share Link">&#x1F517;</button>
 					<button class="btn" type="button" onclick="shareEmbed();" title="Embed">‹/›</button>
 					<button class="btn" type="button" onclick="window.print();" title="Print">&#x1F5B6;</button>
-					<button class="btn" type="button" onclick="installApp();" title="Install App" id="install_app" style="display:none;">Install</button>
 				</span>
 			</span>
 
