@@ -153,7 +153,7 @@ function init() {
 
 	if (params.name) {
 		name.textContent = params.name;
-		document.title = params.name + ' - 12 Hole Ocarina Tabs Creator';
+		document.title = params.name + ' - 7 Hole Ocarina Tabs Creator';
 	}
 
 	if (params.size) {
@@ -271,9 +271,10 @@ function updateButtons () {
 function changeTitle () {
 	var nameEl = document.getElementById("name");
 	var name = prompt('Enter new title:', nameEl.textContent);
+
 	if (name !== null) {
 		nameEl.textContent = name;
-		document.title = name + ' - 12 Hole Ocarina Tabs Creator';
+		document.title = name + ' - 7 Hole Ocarina Tabs Creator';
 	}
 }
 
@@ -399,9 +400,11 @@ function formValues () {
 		key:  key,
 		font: font
 	};
+
 	if (name) {
 		values.name = name;
 	}
+
 	return values;
 }
 
@@ -543,7 +546,14 @@ function saveAsImage () {
 		y += line_height;
 	}
 
-	saveCanvasImage(canvas, "7_hole_ocarina_tabs.png", "image/png");
+	var nameEl = document.getElementById("name");
+
+	if (nameEl.textContent != "") {
+		saveCanvasImage(canvas, nameEl.textContent + ".png", "image/png");
+	} else {
+		saveCanvasImage(canvas, "7_hole_ocarina_tabs.png", "image/png");
+	}
+	
 	saveAsFile = saveAsImage;
 }
 
@@ -553,7 +563,14 @@ function saveAsTextFile () {
 	var blob = new Blob([text], {type : 'text/plain;charset=UTF-8'});
 
 	var url = URL.createObjectURL(blob);
-	saveUrlAs(url, "7_hole_ocarina_tabs.txt");
+	var nameEl = document.getElementById("name");
+
+	if (nameEl.textContent != "") {
+		saveUrlAs(url, nameEl.textContent + ".txt");
+	} else {
+		saveUrlAs(url, "7_hole_ocarina_tabs.txt")
+	}
+
 	setTimeout(function () {
 		URL.revokeObjectURL(url);
 	}, 0);
