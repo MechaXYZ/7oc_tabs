@@ -127,13 +127,14 @@ function getFontFamily () {
 }
 
 
-var TITLE_SCALE = 0.5;
+var TITLE_SCALE = .5;
 
 function updateStyle() {
 	var size = Number(document.getElementById("font_size").value);
 	var unit = document.getElementById("font_size_unit").value;
 	var editor = document.getElementById("editor");
 	var name = document.getElementById("name");
+
 	name.style.fontSize = (size * TITLE_SCALE)+unit;
 	editor.style.fontSize = size+unit;
 	editor.style.fontFamily = getFontFamily();
@@ -160,35 +161,31 @@ function init() {
 		var match = /^\s*(\d+(?:\.\d*)?)(\w+)?\s*$/.exec(params.size);
 		var size = Number(match[1]);
 		var unit = match[2]||'px';
-		var fontSize = size+unit;
+
 		document.getElementById("font_size").value = size;
 		document.getElementById("font_size_unit").value = unit;
-		editor.style.fontSize = size+unit;
-		name.style.fontSize = (size * TITLE_SCALE)+unit;
-	}
 
-	if (params.font) {
-		document.getElementById("font").value = params.font;
-	}
-
-	if (params.key) {
-		document.getElementById("key").value = params.key;
+		editor.style.fontSize = size + unit;
+		name.style.fontSize = (size * TITLE_SCALE) + unit;
 	}
 
 	editor.style.fontFamily = getFontFamily();
 
 	if (params.tabs) {
 		editor.innerHTML = '';
+		
 		var tabs = params.tabs.split("\n");
+
 		for (var i = 0; i < tabs.length; ++ i) {
 			var div  = document.createElement("div");
 			var line = tabs[i];
+
 			if (line.length === 0) {
 				div.appendChild(document.createElement("br"));
-			}
-			else {
+			} else {
 				div.appendChild(document.createTextNode(line));
 			}
+
 			editor.appendChild(div);
 		}
 	}
@@ -200,10 +197,10 @@ function init() {
 		link.href = shareUrl();
 
 		var img = new Image();
-		img.src = "app/ocarina_tabs/icon16.png";
+		img.src = "icons/icon16.png";
 		img.alt = "";
 		link.appendChild(img);
-		link.appendChild(document.createTextNode(" "+document.title));
+		link.appendChild(document.createTextNode(" "+ document.title));
 		document.body.appendChild(link);
 	}
 	
@@ -388,17 +385,15 @@ function setSelectionRange (range) {
 }
 
 function formValues () {
+	var editor = document.getElementById("editor");
+
 	var size = Number(document.getElementById("font_size").value);
 	var unit = document.getElementById("font_size_unit").value;
-	var key  = document.getElementById("key").value;
-	var font = document.getElementById("font").value;
-	var editor = document.getElementById("editor");
 	var name = document.getElementById("name").textContent;
+
 	var values = {
 		tabs: getPlainText(editor),
-		size: size+unit,
-		key:  key,
-		font: font
+		size: size+unit
 	};
 
 	if (name) {

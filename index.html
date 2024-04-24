@@ -197,7 +197,7 @@
 
 			#name {
 				text-align: center;
-				display: none;
+				display: block;
 			}
 
 			@media print {
@@ -226,6 +226,8 @@
 	</head>
 	<body onload="init();">
 		<div class="controls">
+			<div id="name"></div>
+
 			<span class="controls-cell controls-cell-buttons">
 				<span class="controls-line" id="other_notes"></span>
 				<span class="controls-line" id="full_notes"></span>
@@ -275,7 +277,7 @@
 			</span>
 
 		</div>
-		<div id="name"></div>
+
 		<div class="tabs" id="editor" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contentEditable="true"></div>
 	</body>
 </html>
